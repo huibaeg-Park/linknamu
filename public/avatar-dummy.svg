@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 보여주기용 더미 프로필 사진. 나중에 진짜 사진으로 교체하세요. -->
+  <rect width="200" height="200" fill="#d9e6dc"/>
+  <circle cx="100" cy="78" r="38" fill="#8fb39a"/>
+  <path d="M30 200c0-42 31-70 70-70s70 28 70 70z" fill="#8fb39a"/>
+</svg>

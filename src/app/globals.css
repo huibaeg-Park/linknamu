@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f7f2;
+  --foreground: #1f2a22;
+  --accent: #2f7d4f;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Pretendard", system-ui, -apple-system, "Segoe UI", "Malgun Gothic", sans-serif;
+}

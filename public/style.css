@@ -1,0 +1,85 @@
+:root {
+  --bg: #f1f7f2;
+  --card: #ffffff;
+  --ink: #1d2b22;
+  --muted: #6b7d71;
+  --green: #2f8f5b;
+  --green-dark: #236f45;
+  --line: #dbe7de;
+  --danger: #c0392b;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  background: linear-gradient(180deg, #e3f1e7 0%, var(--bg) 220px);
+  color: var(--ink);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+.wrap { max-width: 480px; margin: 0 auto; padding: 40px 18px 56px; }
+
+/* ----- 공개 페이지 ----- */
+.profile { text-align: center; margin-bottom: 28px; }
+.avatar {
+  width: 104px; height: 104px; border-radius: 50%;
+  object-fit: cover; display: block; margin: 0 auto 14px;
+  border: 4px solid #fff; box-shadow: 0 4px 14px rgba(35, 111, 69, .2);
+  background: var(--green); color: #fff;
+  font-size: 44px; font-weight: 700; line-height: 96px;
+}
+.profile h1 { margin: 0 0 4px; font-size: 1.5rem; }
+.profile p { margin: 0; color: var(--muted); word-break: keep-all; }
+
+.links { display: flex; flex-direction: column; gap: 12px; }
+.link-card {
+  display: block; text-decoration: none; color: var(--ink);
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 16px; padding: 16px 18px; text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .04);
+  transition: transform .12s, box-shadow .12s, border-color .12s;
+}
+.link-card:hover, .link-card:focus-visible { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(35, 111, 69, .16); border-color: var(--green); outline: none; }
+.link-card .t { font-weight: 600; font-size: 1.02rem; }
+.link-card .h { font-size: .8rem; color: var(--muted); margin-top: 2px; }
+.empty { text-align: center; color: var(--muted); padding: 30px 0; }
+.foot { text-align: center; margin-top: 36px; font-size: .8rem; color: var(--muted); }
+.foot a { color: var(--green-dark); }
+
+/* ----- 관리 페이지 ----- */
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; margin-bottom: 18px; }
+.panel h2 { margin: 0 0 12px; font-size: 1.05rem; }
+label { display: block; font-size: .85rem; color: var(--muted); margin: 10px 0 4px; }
+input[type=text], input[type=password], input[type=url] {
+  width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 10px; font-size: 1rem; font-family: inherit;
+}
+input:focus { outline: 2px solid var(--green); border-color: transparent; }
+button {
+  font-family: inherit; font-size: .95rem; cursor: pointer;
+  border: 1px solid var(--line); background: #fff; color: var(--ink);
+  border-radius: 10px; padding: 9px 14px;
+}
+button:hover { border-color: var(--green); }
+button.primary { background: var(--green); border-color: var(--green); color: #fff; font-weight: 600; }
+button.primary:hover { background: var(--green-dark); }
+button.danger { color: var(--danger); }
+button.small { padding: 5px 9px; font-size: .82rem; }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.row.end { justify-content: flex-end; }
+.avatar-edit { display: flex; align-items: center; gap: 14px; }
+.avatar-edit .avatar { margin: 0; width: 72px; height: 72px; line-height: 64px; font-size: 30px; flex: none; }
+.msg { min-height: 1.3em; font-size: .85rem; margin-top: 8px; color: var(--green-dark); }
+.msg.err { color: var(--danger); }
+.stat { display: flex; gap: 10px; margin-bottom: 18px; }
+.stat > div { flex: 1; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px; text-align: center; }
+.stat b { display: block; font-size: 1.5rem; color: var(--green-dark); }
+.stat span { font-size: .8rem; color: var(--muted); }
+.item { border-top: 1px solid var(--line); padding: 12px 0; }
+.item:first-child { border-top: 0; }
+.item .top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.item .name { font-weight: 600; word-break: break-all; }
+.item .url { font-size: .8rem; color: var(--muted); word-break: break-all; }
+.clicks { font-weight: 700; color: var(--green-dark); white-space: nowrap; }
+.bar { height: 6px; background: #e6f0e9; border-radius: 3px; margin: 8px 0; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--green); border-radius: 3px; }
+.hidden { display: none !important; }

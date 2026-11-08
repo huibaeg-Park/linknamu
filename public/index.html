@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>링크나무</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B3%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="wrap">
+    <section class="profile" id="profile" aria-live="polite"></section>
+    <nav class="links" id="links" aria-label="링크 목록"></nav>
+    <p class="foot">🌳 <a href="/admin">링크나무</a>로 만든 페이지</p>
+  </main>
+  <script>
+    (async function () {
+      const profileEl = document.getElementById('profile');
+      const linksEl = document.getElementById('links');
+      try {
+        const data = await (await fetch('/api/page')).json();
+        const p = data.profile;
+        document.title = p.name + ' | 링크나무';
+
+        let avatar;
+        if (p.avatar) {
+          avatar = document.createElement('img');
+          avatar.src = p.avatar;
+          avatar.alt = p.name + ' 프로필 사진';
+        } else {
+          avatar = document.createElement('div');
+          avatar.textContent = (p.name || '?').charAt(0);
+        }
+        avatar.className = 'avatar';
+        const h1 = document.createElement('h1'); h1.textContent = p.name;
+        const bio = document.createElement('p'); bio.textContent = p.bio;
+        profileEl.append(avatar, h1, bio);
+
+        if (!data.links.length) {
+          const e = document.createElement('p');
+          e.className = 'empty'; e.textContent = '아직 등록된 링크가 없습니다.';
+          linksEl.append(e);
+        }
+        data.links.forEach((l) => {
+          const a = document.createElement('a');
+          a.className = 'link-card';
+          a.href = '/go/' + l.id;       // 클릭 집계용 경유 주소
+          a.target = '_blank';
+          a.rel = 'noopener';
+          const t = document.createElement('div'); t.className = 't'; t.textContent = l.title;
+          const h = document.createElement('div'); h.className = 'h'; h.textContent = l.host;
+          a.append(t, h);
+          linksEl.append(a);
+        });
+      } catch (e) {
+        profileEl.textContent = '페이지를 불러오지 못했습니다.';
+      }
+    })();
+  </script>
+</body>
+</html>

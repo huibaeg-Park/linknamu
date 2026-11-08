@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# 개인 사진 (공개 저장소에 올리지 않음)
+public/사진.jpg
+
+# 환경변수는 절대 커밋하지 않습니다
+.env
+.env.local
+.env.*.local
